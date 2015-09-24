@@ -11,7 +11,6 @@
 -(HQSelect)select;
 -(HQFrom)from;
 -(HQWhere)where;
--(HQGroup)group;
 
 #pragma mark - update
 -(HQUpdate)update;
@@ -24,6 +23,9 @@
 #pragma mark - delete
 -(HQDeleteFrom)deleteFrom;
 -(HQEquals)equals;
+
+#pragma mark - groupBy
+-(HQGroupBy)groupBy;
 
 #pragma mark -excute
 -(id)excute;

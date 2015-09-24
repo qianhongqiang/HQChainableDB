@@ -27,20 +27,21 @@
         NSLog(@"fail to open");
     }
     
-    BOOL ok = db.insert(@"t_student").property(@"name",@"age",nil).values(@"pll",@99,nil).excuteUp;
+    BOOL ok = db.insert(@"t_student").property(@"name",@"age",nil).values(@"qhq",@99,nil).excuteUp;
     
     NSLog(@"%d",ok);
     
     BOOL OKDelete = db.deleteFrom(@"t_student").where(@"name",nil).equals(@"qhq",nil).excuteUp;
     NSLog(@"%d",OKDelete);
+    FMResultSet *set = db.select(@"SUM(age)").from(@"t_student").groupBy(@"name").excute;
     
-    FMResultSet *set = db.select(@"*").from(@"t_student").excute;
+//    FMResultSet *set = db.select(@"*").from(@"t_student").groupBy(@"name").excute;
     
     while ([set next]) {
         int ID = [set intForColumn:@"id"];
         NSString *name = [set stringForColumn:@"name"];
         int age = [set intForColumn:@"age"];
-        NSLog(@"%d %@ %d", ID, name, age);
+        NSLog(@"%d, %@, %d", ID, name, age);
     }
 }
 

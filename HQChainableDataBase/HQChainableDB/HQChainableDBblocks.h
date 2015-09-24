@@ -18,9 +18,6 @@ typedef FMDatabase *(^HQFrom)(NSString *tableName);
 typedef FMDatabase *(^HQWhere)(NSString *value,...);
 #define HQWhere(value,...) ^FMDatabase* (NSString *value,...)
 
-typedef FMDatabase *(^HQGroup)(NSString *key);
-#define HQGroup(value) ^FMDatabase* (NSString *value)
-
 /***************************update************************************/
 typedef FMDatabase *(^HQUpdate)(NSString *key);
 #define HQUpdate(key) ^FMDatabase* (NSString *key)
@@ -41,5 +38,9 @@ typedef FMDatabase *(^HQDeleteFrom)(NSString *tableName);
 
 typedef FMDatabase *(^HQEquals)(NSString *value,...);
 #define HQEquals(value,...) ^FMDatabase* (NSString *value,...)
+
+/***************************delete************************************/
+typedef FMDatabase *(^HQGroupBy)(NSString *key);
+#define HQGroupBy(key) ^FMDatabase* (NSString *key)
 
 #endif

@@ -72,13 +72,6 @@ static char *excuteSQLKey = "excuteSQLKey";
     return where;
 }
 
--(HQGroup)group {
-    HQGroup group = HQGroup(key){
-        return self;
-    };
-    return group;
-}
-
 #pragma mark - update
 -(HQUpdate)update {
     HQUpdate update = HQUpdate(key){
@@ -219,6 +212,17 @@ static char *excuteSQLKey = "excuteSQLKey";
     return equals;
 }
 
+-(HQGroupBy)groupBy {
+    HQGroupBy groupBy = HQGroupBy(key){
+        
+        [self.excuteSQL appendFormat:@"GROUP BY %@",key];
+        
+        return self;
+    };
+    return groupBy;
+}
+
+#pragma mark -excute
 -(id)excute {
    return [self executeQuery:self.excuteSQL];
 }
